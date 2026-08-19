@@ -11,6 +11,5 @@ listing:
 page-layout: full
 title-block-banner: true
 ---
-Welcome to Vanessa Solis' tech portfolio!
 
----
+Welcome to Vanessa Solis' tech portfolio!
