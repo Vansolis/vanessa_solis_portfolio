@@ -5,7 +5,7 @@ about:
   links:
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/vanessaesolis/
 ---
 
 I am a fourth-year Neuroscience major with minors in Theology and Chemistry at Dominican University. In addition to being a student researcher in the Slug Lab during the summer of 2026, I enrolled in a 1-week crash course on Data Science using R. I was interested in learning to code because of its relevance in medicine and scientific research.
