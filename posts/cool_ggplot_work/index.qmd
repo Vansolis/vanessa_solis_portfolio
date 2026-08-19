@@ -2,7 +2,7 @@
 title: "Cool ggplot stuff"
 author: "V.S."
 date: "2026-08-19"
-categories: [goals,general]
+categories: [general]
 ---
 
 ```{r}
