@@ -1,0 +1,29 @@
+---
+title: "Cool ggplot stuff"
+author: "V.S."
+date: "2026-08-19"
+categories: [goals,general]
+---
+
+```{r}
+library(ggplot2)
+
+ggplot(data = mpg, 
+       mapping = aes(
+         x = cty, y = hwy)
+) + geom_point()
+
+```
+
+We also learned about the importance of clear labels using the lab function. Here is the graph with better labeling.
+
+```{r}
+
+library(ggplot2)
+
+ggplot(data = mpg, 
+       mapping = aes(
+         x = cty, y = hwy)
+) + geom_point() + labs(title= "cty vs. hwy", x= "MPG on Highways", 
+                        y= "MPG on City Roads")
+```

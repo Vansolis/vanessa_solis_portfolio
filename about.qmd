@@ -3,7 +3,6 @@ title: "About"
 image: 
 about:
 
-
   template: jolla
   links:
     - icon: linkedin

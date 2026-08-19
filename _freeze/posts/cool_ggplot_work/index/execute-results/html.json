@@ -1,0 +1,15 @@
+{
+  "hash": "d46bd0cfafed5c1f124ea44e7600bc84",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Cool ggplot stuff\"\nauthor: \"V.S.\"\ndate: \"2026-10-21\"\ncategories: [goals,general]\n---\n\n\n::: {.cell}\n\n:::\n\n\n``` r\nlibrary(ggplot2)\n\nggplot(data = mpg, \n       mapping = aes(\n         x = cty, y = hwy)\n       ) + geom_point()\n\n\n```\n\n\\\nWe also learned about the importance of clear labels using the lab function. Here is the graph with better labeling.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
