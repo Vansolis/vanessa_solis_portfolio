@@ -1,24 +1,24 @@
 [
   {
-    "objectID": "posts/cool_ggplot_work/index.html",
-    "href": "posts/cool_ggplot_work/index.html",
-    "title": "Cool ggplot stuff",
+    "objectID": "posts/Flight Data!/index.html",
+    "href": "posts/Flight Data!/index.html",
+    "title": "Flight Data",
     "section": "",
-    "text": "library(ggplot2)\n\nggplot(data = mpg, \n       mapping = aes(\n         x = cty, y = hwy)\n) + geom_point()\n\n\n\n\n\n\n\n\nWe also learned about the importance of clear labels using the lab function. Here is the graph with better labeling.\n\nlibrary(ggplot2)\n\nggplot(data = mpg, \n       mapping = aes(\n         x = cty, y = hwy)\n) + geom_point() + labs(title= \"MPG City vs. Highways \", x= \"MPG on City Roads\", \n                        y= \"MPG on Highways\")"
+    "text": "My favorite data set we looked at was flights that departed from New York City in 2013. There was a total of 336, 776 flights. I am sure not knowing the exact number has been keeping you up at night!\n\nlibrary(nycflights13)\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.1     ✔ readr     2.2.0\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.3     ✔ tibble    3.3.1\n✔ lubridate 1.9.5     ✔ tidyr     1.3.2\n✔ purrr     1.2.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nglimpse(flights)\n\nRows: 336,776\nColumns: 19\n$ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2…\n$ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, 554, 555, 557, 557, 558, 558, …\n$ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, 558, 600, 600, 600, 600, 600, …\n$ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, -3, -3, -2, -2, -2, -2, -2, -1…\n$ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812, 740, 913, 709, 838, 753, 849,…\n$ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837, 728, 854, 723, 846, 745, 851,…\n$ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12, 19, -14, -8, 8, -2, -3, 7, -1…\n$ carrier        &lt;chr&gt; \"UA\", \"UA\", \"AA\", \"B6\", \"DL\", \"UA\", \"B6\", \"EV\", \"B6\", \"…\n$ flight         &lt;int&gt; 1545, 1714, 1141, 725, 461, 1696, 507, 5708, 79, 301, 4…\n$ tailnum        &lt;chr&gt; \"N14228\", \"N24211\", \"N619AA\", \"N804JB\", \"N668DN\", \"N394…\n$ origin         &lt;chr&gt; \"EWR\", \"LGA\", \"JFK\", \"JFK\", \"LGA\", \"EWR\", \"EWR\", \"LGA\",…\n$ dest           &lt;chr&gt; \"IAH\", \"IAH\", \"MIA\", \"BQN\", \"ATL\", \"ORD\", \"FLL\", \"IAD\",…\n$ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, 150, 158, 53, 140, 138, 149, 1…\n$ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 762, 719, 1065, 229, 944, 733, …\n$ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 6, 6, 6…\n$ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59, 0…\n$ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05:00:00, 2013-01-01 0…"
   },
   {
-    "objectID": "posts/Example_assignment/index.html",
-    "href": "posts/Example_assignment/index.html",
-    "title": "Example assignment",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "This assignment engages you in the process of introspection. Your task is to use introspection to evaluate and describe your own mental imagery abilities. Attempt to answer the following kinds of questions. What is your mental imagery like? Do you have mental imagery for different kinds of senses? Is your mental imagery vivid and life-like or very different from normal perception? How would you describe your mental imagery?\nYou should write a minimum of 250 words, but feel free to write more. Submit your document on blackboard by the due date."
+    "text": "I am a fourth-year Neuroscience major with minors in Theology and Chemistry at Dominican University. In addition to being a student researcher in the Slug Lab during the summer of 2026, I enrolled in a 1-week crash course on Data Science using R. I was interested in learning to code because of its relevance in medicine and scientific research."
   },
   {
-    "objectID": "posts/Example_assignment/index.html#my-mental-imagery",
-    "href": "posts/Example_assignment/index.html#my-mental-imagery",
-    "title": "Example assignment",
-    "section": "My mental imagery",
-    "text": "My mental imagery\nMy mental imagery is like…"
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Vanessa Solis",
+    "section": "",
+    "text": "Welcome to Vanessa Solis’ portfolio! This space is designated to share my work from a 1-week crash course on Data Science using R and other professional projects.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCool ggplot stuff\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\n\n\nAug 19, 2026\n\n\nV.S.\n\n\n\n\n\n\n\n\n\n\n\n\nFlight Data\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\n\n\nAug 19, 2026\n\n\nV.S.\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "readme.html",
@@ -105,31 +105,10 @@
     "text": "See this growing list of quarto resources for much, much more:\nhttps://github.com/mcanouil/awesome-quarto"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Vanessa Solis",
+    "objectID": "posts/cool_ggplot_work/index.html",
+    "href": "posts/cool_ggplot_work/index.html",
+    "title": "Cool ggplot stuff",
     "section": "",
-    "text": "Welcome to Vanessa Solis’ portfolio! This space is designated to share my work from a 1-week crash course on Data Science using R and other professional projects.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCool ggplot stuff\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\n\n\nAug 19, 2026\n\n\nV.S.\n\n\n\n\n\n\n\n\n\n\n\n\nExample assignment\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\n\n\nOct 21, 2022\n\n\nMatt Crump\n\n\n\n\n\n\n\n\n\n\n\n\nMy First post\n\n\n\ngoals\n\ngeneral\n\n\n\n\n\n\n\n\n\nOct 21, 2022\n\n\nMatt Crump\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "I am a fourth-year Neuroscience major with minors in Theology and Chemistry at Dominican University. In addition to being a student researcher in the Slug Lab during the summer of 2026, I enrolled in a 1-week crash course on Data Science using R. I was interested in learning to code because of its relevance in medicine and scientific research."
-  },
-  {
-    "objectID": "posts/my_first_post/index.html",
-    "href": "posts/my_first_post/index.html",
-    "title": "My First post",
-    "section": "",
-    "text": "This is an example first post. Whatever you write here will appear inside your post.\nIt is possible to write lists:\nAnd make headers"
-  },
-  {
-    "objectID": "posts/my_first_post/index.html#this-is-a-second-level-heading",
-    "href": "posts/my_first_post/index.html#this-is-a-second-level-heading",
-    "title": "My First post",
-    "section": "This is a second level heading",
-    "text": "This is a second level heading\nYou can include images, and many other kinds of content.\nIf you are using the visual editor in Rstudio you can drag images onto the editor to insert them into the document. Otherwise, you need to place the image inside of the folder for this post, and then you can insert it to your post directly, like this:\n\nThe first image in a blog post will also be used on the listings page."
+    "text": "library(ggplot2)\n\nggplot(data = mpg, \n       mapping = aes(\n         x = cty, y = hwy)\n) + geom_point()\n\n\n\n\n\n\n\n\nWe also learned about the importance of clear labels using the lab function. Here is the graph with better labeling.\n\nlibrary(ggplot2)\n\nggplot(data = mpg, \n       mapping = aes(\n         x = cty, y = hwy)\n) + geom_point() + labs(title= \"MPG Highways vs. City\", x= \"MPG on City Roads\", \n                        y= \"MPG on Highways\")"
   }
 ]

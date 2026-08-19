@@ -1,0 +1,16 @@
+---
+title: "Flight Data"
+author: "V.S."
+date: "2026-08-19"
+categories: [goals,general]
+---
+
+My favorite data set we looked at was flights that departed from New York City in 2013. There was a total of 336, 776 flights. I am sure not knowing the exact number has been keeping you up at night!
+
+```{r}
+library(nycflights13)
+
+library(tidyverse)
+
+glimpse(flights)
+```
