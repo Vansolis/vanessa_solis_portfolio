@@ -4,7 +4,7 @@
     "href": "posts/cool_ggplot_work/index.html",
     "title": "Cool ggplot stuff",
     "section": "",
-    "text": "library(ggplot2)\n\nggplot(data = mpg, \n       mapping = aes(\n         x = cty, y = hwy)\n       ) + geom_point()\n\n\nWe also learned about the importance of clear labels using the lab function. Here is the graph with better labeling."
+    "text": "library(ggplot2)\n\nggplot(data = mpg, \n       mapping = aes(\n         x = cty, y = hwy)\n) + geom_point()\n\n\n\n\n\n\n\n\nWe also learned about the importance of clear labels using the lab function. Here is the graph with better labeling.\n\nlibrary(ggplot2)\n\nggplot(data = mpg, \n       mapping = aes(\n         x = cty, y = hwy)\n) + geom_point() + labs(title= \"MPG City vs. Highways \", x= \"MPG on City Roads\", \n                        y= \"MPG on Highways\")"
   },
   {
     "objectID": "posts/Example_assignment/index.html",

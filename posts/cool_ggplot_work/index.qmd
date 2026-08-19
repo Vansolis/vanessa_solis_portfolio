@@ -24,6 +24,6 @@ library(ggplot2)
 ggplot(data = mpg, 
        mapping = aes(
          x = cty, y = hwy)
-) + geom_point() + labs(title= "cty vs. hwy", x= "MPG on Highways", 
-                        y= "MPG on City Roads")
+) + geom_point() + labs(title= "MPG City vs. Highways ", x= "MPG on City Roads", 
+                        y= "MPG on Highways")
 ```
