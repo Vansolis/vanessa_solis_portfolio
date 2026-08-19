@@ -1,5 +1,5 @@
 ---
-title: "quartoCourseBlog"
+title: "Vanessa Solis' Portfolio"
 listing:
   contents: posts
   sort: "date desc"
@@ -12,4 +12,6 @@ page-layout: full
 title-block-banner: true
 ---
 
-Welcome to Vanessa Solis' tech portfolio!
+Welcome to Vanessa Solis' portfolio! This space is designated to share my work from a 1-week crash course on Data Science using R.
+
+I am a fourth-year Neurobiology major at Dominican University with minors in Theology and Chemistry. I decided to enroll in this class because of the relevance of coding in medicine, public health, and research.
