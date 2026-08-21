@@ -1,0 +1,128 @@
+```{r}
+
+```
+
+---
+title: R project progress
+author: "V.S."
+date: "2026-08-20"
+---
+
+This data set on global trends and forecasts of breast cancer seems interesting
+
+<https://www.nature.com/articles/s41597-023-02253-5>
+
+## **#1: Does the rate of breast cancer deaths relate to Human Development Index (HDI)?**
+
+Prediction: Lower HDI -\> Higher rate of death
+
+```{r}
+library(readxl)
+library(ggplot2)
+
+bc_deaths <- readxl::read_excel(path = "/cloud/project/GBD for BC.xlsx", sheet = 1)
+bc_hdi <- readxl::read_excel(path = "/cloud/project/GBD for BC.xlsx", sheet = 8)
+
+
+# Filter down to deaths in the measure column
+# Filter down to Rate in the metric column
+# Filter down to 1990 for the year
+
+
+library(dplyr)
+
+filtered_data <- bc_deaths %>%
+  filter(
+    measure == "Deaths",
+    metric == "Rate",
+    age == "Age-standardized", 
+    year == 1990
+  )
+
+
+# Merge our datasets by country/location
+
+merged_data <- merge(filtered_data, bc_hdi, by.x = "location", by.y = "Country")
+
+
+# Scatterplot of death and HDI
+
+ggplot(merged_data, aes(x = HDI, y = val)) + 
+  geom_point(color = "steelblue", size = 3) +
+  theme_classic() +
+  labs(
+    title = "1990 Breast Cancer Death Rates and HDI",
+    x = "Human Development Index\n(HDI)",
+    y = "Age-Standardized Death Rate\n(ASDR) per 100,000"
+  ) + geom_smooth(method = "lm", formula = y ~ poly(x, 2))
+
+
+```
+
+```{r}
+library(readxl)
+library(ggplot2)
+library(dplyr)
+
+
+#bc_deaths <- readxl::read_excel(path = "/cloud/project/GBD for BC.xlsx", sheet = 1)
+bc_region_SDI <- readxl::read_excel(path = "/cloud/project/GBD for BC.xlsx", sheet = 5)
+
+
+# Filter down to deaths in the measure column
+# Filter down to Rate in the metric column
+# Filter down to 1990 for the year
+filtered_data <- bc_region_SDI |>
+  filter(
+    measure == "Deaths",
+    metric == "Rate",
+    age == "Age-standardized", 
+    year == "1990"
+  )
+
+
+high_mid_rows <- grepl("high", filtered_data$location, ignore.case = TRUE) & 
+  grepl("mid", filtered_data$location, ignore.case = TRUE)
+
+filtered_data$location[high_mid_rows] <- "High-middle SDI"
+
+# Scatterplot of death and HDI
+
+
+filtered_data$location <- factor(
+  filtered_data$location, 
+  levels = c("Low SDI", "Low-middle SDI", "Middle SDI", "High-middle SDI", "High SDI", "Global")
+)
+
+
+
+class(filtered_data$location)
+
+ggplot(filtered_data, aes(x = location, y = val)) + 
+  geom_point(color = "steelblue", size = 3) + 
+  theme_classic() + 
+  labs( 
+    title = "Breast Cancer Death Rates and SDI", 
+    x = "Socio-demographic Index (SDI) Category", 
+    y = "Age-Standardized Death Rate (ASDR) per 100,000" 
+  )
+
+
+
+
+ggplot(filtered_data, aes(x = location, y = val)) + 
+  geom_errorbar(
+    aes(ymin = lower, ymax = upper), 
+    width = 0.15,               
+    color = "steelblue", 
+    linewidth = 0.7           
+  ) + 
+  geom_point(color = "darkblue", size = 3) + 
+  
+  theme_classic() + 
+  labs( 
+    title = "1990 Breast Cancer Death Rates and SDI", 
+    x = "Socio-demographic Index (SDI) Category", 
+    y = "Age-Standardized Death Rate (ASDR) per 100,000" 
+  )
+```
