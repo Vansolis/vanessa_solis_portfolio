@@ -44,6 +44,9 @@ filtered_data <- bc_deaths %>%
 
 merged_data <- merge(filtered_data, bc_hdi, by.x = "location", by.y = "Country")
 
+extreme_data <- merged_data |> 
+  arrange(HDI) |>
+  slice(c(1, n()))
 
 # Scatterplot of death and HDI
 
@@ -54,7 +57,11 @@ ggplot(merged_data, aes(x = HDI, y = val)) +
     title = "1990 Breast Cancer Death Rates and HDI",
     x = "Human Development Index\n(HDI)",
     y = "Age-Standardized Death Rate\n(ASDR) per 100,000"
-  ) + geom_smooth(method = "lm", formula = y ~ poly(x, 2))
+  ) + geom_smooth(method = "lm", formula = y ~ poly(x, 2)) +
+  geom_label(
+    data = extreme_data,
+    mapping = aes(x = HDI, y = val-1, label = location)
+  )
 
 
 ```
