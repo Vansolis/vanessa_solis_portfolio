@@ -1,37 +1,37 @@
-```{r}
-
-```
-
 ---
-title: R project progress
+title: Breast Cancer Mortality Rates and Global Development Indices 
+subtitle: R Project Workflow and Analysis Progress 
 author: "V.S."
 date: "2026-08-20"
 ---
 
-This data set on global trends and forecasts of breast cancer seems interesting
+After learning the basics of R these past three days, it is now time to create my own project!
+
+This data set on global trends and forecasts of breast cancer interests me:
 
 <https://www.nature.com/articles/s41597-023-02253-5>
 
-## **#1: Does the rate of breast cancer deaths relate to Human Development Index (HDI)?**
+## **#1: Does Human Development Index (HDI) relate to breast cancer mortality rate?**
 
-Prediction: Lower HDI -\> Higher rate of death
+Prediction: Lower HDI -\> Higher ASDR; Higher HDI -\> Lower ASDR
 
 ```{r}
+
 library(readxl)
+library(dplyr)
 library(ggplot2)
 
 bc_deaths <- readxl::read_excel(path = "/cloud/project/GBD for BC.xlsx", sheet = 1)
 bc_hdi <- readxl::read_excel(path = "/cloud/project/GBD for BC.xlsx", sheet = 8)
 
 
-# Filter down to deaths in the measure column
-# Filter down to Rate in the metric column
-# Filter down to 1990 for the year
+# Filter down to "Deaths" in the "measure" column
+# Filter down to "Rate" in the "metric" column
+# Filter down to "1990" in the "year" column 
+# Filter down to "Age-standardized" in the "age" column
 
 
-library(dplyr)
-
-filtered_data <- bc_deaths %>%
+filtered_data <- bc_deaths |> 
   filter(
     measure == "Deaths",
     metric == "Rate",
@@ -40,15 +40,19 @@ filtered_data <- bc_deaths %>%
   )
 
 
-# Merge our datasets by country/location
+# Merge datasets by country/location
 
 merged_data <- merge(filtered_data, bc_hdi, by.x = "location", by.y = "Country")
+
+# Sort countries by HDI in ascending order, pulling the first and last rows
 
 extreme_data <- merged_data |> 
   arrange(HDI) |>
   slice(c(1, n()))
 
-# Scatterplot of death and HDI
+
+
+# Scatterplot of death rates vs. HDI
 
 ggplot(merged_data, aes(x = HDI, y = val)) + 
   geom_point(color = "steelblue", size = 3) +
@@ -64,21 +68,28 @@ ggplot(merged_data, aes(x = HDI, y = val)) +
   )
 
 
+
 ```
+
+![](images/clipboard-3100991468.png)
+
+## **#2: Does Socio-demographic Index (SDI) relate to breast cancer mortality rate?**
+
+Prediction: Lower SDI -\> Higher ASDR; Higher SDI -\> Lower ASDR
 
 ```{r}
 library(readxl)
-library(ggplot2)
 library(dplyr)
+library(ggplot2)
 
-
-#bc_deaths <- readxl::read_excel(path = "/cloud/project/GBD for BC.xlsx", sheet = 1)
 bc_region_SDI <- readxl::read_excel(path = "/cloud/project/GBD for BC.xlsx", sheet = 5)
 
 
-# Filter down to deaths in the measure column
-# Filter down to Rate in the metric column
-# Filter down to 1990 for the year
+# Filter down to "Deaths" in the "measure" column
+# Filter down to "Rate" in the "metric" column
+# Filter down to "1990" in the "year" column
+# Filter down to "Age-standardized" in the "age" column
+
 filtered_data <- bc_region_SDI |>
   filter(
     measure == "Deaths",
@@ -88,34 +99,20 @@ filtered_data <- bc_region_SDI |>
   )
 
 
-high_mid_rows <- grepl("high", filtered_data$location, ignore.case = TRUE) & 
-  grepl("mid", filtered_data$location, ignore.case = TRUE)
-
-filtered_data$location[high_mid_rows] <- "High-middle SDI"
-
-# Scatterplot of death and HDI
-
+# Use levels to reorder SDI categories 
 
 filtered_data$location <- factor(
   filtered_data$location, 
   levels = c("Low SDI", "Low-middle SDI", "Middle SDI", "High-middle SDI", "High SDI", "Global")
 )
 
-
-
+ 
 class(filtered_data$location)
-
-ggplot(filtered_data, aes(x = location, y = val)) + 
-  geom_point(color = "steelblue", size = 3) + 
-  theme_classic() + 
-  labs( 
-    title = "Breast Cancer Death Rates and SDI", 
-    x = "Socio-demographic Index (SDI) Category", 
-    y = "Age-Standardized Death Rate (ASDR) per 100,000" 
-  )
+# Returns as "factor"
 
 
 
+# Graph of death rates vs. SDI 
 
 ggplot(filtered_data, aes(x = location, y = val)) + 
   geom_errorbar(
@@ -133,3 +130,5 @@ ggplot(filtered_data, aes(x = location, y = val)) +
     y = "Age-Standardized Death Rate (ASDR) per 100,000" 
   )
 ```
+
+![](images/clipboard-355279747.png)
